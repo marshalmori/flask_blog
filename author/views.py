@@ -1,5 +1,5 @@
 from flask_blog import app
 
-@app.rout('/login')
+@app.route('/login')
 def login():
     return 'Author login'
