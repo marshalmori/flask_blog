@@ -11,13 +11,13 @@
       <form action="{{ url_for('register') }}" method="POST" role="form">
         {{ form.hidden_tag() }}
 
-        {{ render_field(form.fullname, class='form-control') }}
-        {{ render_field(form.email, class='form-control') }}
-        {{ render_field(form.username, class='form-control') }}
-        {{ render_field(form.password, class='form-control') }}
-        {{ render_field(form.confirm, class='form-control') }}
+        {{ render_field(form.fullname, class='form-control form-control-lg', placeholder="Nome completo") }}
+        {{ render_field(form.email, class='form-control form-control-lg', placeholder="seu_email@email.com") }}
+        {{ render_field(form.username, class='form-control form-control-lg', placeholder="Nome de usuário") }}
+        {{ render_field(form.password, class='form-control form-control-lg', placeholder="Senha") }}
+        {{ render_field(form.confirm, class='form-control form-control-lg', placeholder="Confirme a senha") }}
 
-        <button type="submit" class="btn btn-outline-secondary">Register</button>
+        <button type="submit" class="btn btn-outline-primary">Register</button>
       </form>
     </div>
   </div>
