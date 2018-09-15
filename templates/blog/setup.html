@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Blog Create{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <h3>Blog Creation</h3>
+      {% from "_formhelpers.html" import render_field %}
+      <form action="{{ url_for('setup') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <h4>Blog Information</h4>
+        {{ render_field(form.name, class='form-control form-control-lg', placeholder="Nome do blog") }}
+
+        <h4>Admin User</h4>
+        {{ render_field(form.fullname, class='form-control form-control-lg', placeholder="Nome completo") }}
+        {{ render_field(form.email, class='form-control form-control-lg', placeholder="seu_email@email.com") }}
+        {{ render_field(form.username, class='form-control form-control-lg', placeholder="Nome de usuário") }}
+        {{ render_field(form.password, class='form-control form-control-lg', placeholder="Senha") }}
+        {{ render_field(form.confirm, class='form-control form-control-lg', placeholder="Confirme a senha") }}
+
+        <button type="submit" class="btn btn-outline-primary">Create Blog</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
