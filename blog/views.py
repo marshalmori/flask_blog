@@ -12,7 +12,7 @@ def index():
     blogs = Blog.query.count()
     if blogs == 0:
         return redirect(url_for('setup'))
-    return "Index page"
+    return render_template('blog/index.html')
 
 @app.route('/admin')
 @login_required
