@@ -6,5 +6,4 @@ Flask-WTF
 Flask-Migrate
 py-bcrypt
 python-slugify
-Flask-Markdown
-Flask-Uploads
+flask-markdown
