@@ -13,7 +13,7 @@
       {{ form.hidden_tag() }}
 
       {{ render_field(form.title, class='form-control form-control-lg', placeholder="Título do Post") }}
-      {{ render_field(form.body, class='form-control form-control-lg',row = 10, placeholder="Texto do Post") }}
+      {{ render_field(form.body, class='form-control form-control-lg', rows=8, placeholder="Texto do Post") }}
       {{ render_field(form.category, class='form-control form-control-lg') }}
       {{ render_field(form.new_category, class='form-control form-control-lg', placeholder="Nova categoria") }}
 
