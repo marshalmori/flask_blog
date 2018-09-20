@@ -20,6 +20,7 @@ class Post(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
     title = db.Column(db.String(80))
     body = db.Column(db.Text)
+    image = db.Column(db.String(255))
     slug = db.Column(db.String(250), unique=True)
     publish_date = db.Column(db.DateTime)
     live = db.Column(db.Boolean)
@@ -27,6 +28,10 @@ class Post(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
     category = db.relationship('Category',backref=db.backref('posts', lazy='dynamic'))
 
+    @property
+    def imgsrc(self):
+        return uploaded_images.url(self.image)
+        
     def __init__(self, blog, author, title, body, category, slug=None, publish_date=None, live=True):
         self.blog_id = blog.id
         self.author_id = author.id

@@ -7,3 +7,4 @@ Flask-Migrate
 py-bcrypt
 python-slugify
 flask-markdown
+Flask-Uploads
