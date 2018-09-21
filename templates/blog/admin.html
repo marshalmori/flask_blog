@@ -27,13 +27,13 @@
             <div class="post-item">
               <h4>
                 <a href="{{ url_for('article', slug=post.slug) }}">{{ post.title }}</a>
+                {% if not post.live %}(deleted){% endif %}</h4>
                 <div class="text-muted">
                   Posted by
                     <a href="#">{{ post.author.fullname }}</a>
                     on {{ post.publish_date.strftime('%d-%m-%Y') }}
                     in <a href="#">{{ post.category.name }}</a>
                 </div>
-              </h4>
             </div>
         {% endfor %}
       </div>

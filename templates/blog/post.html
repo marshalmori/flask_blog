@@ -5,12 +5,26 @@
 {% block content %}
 
 <div class="col-md-offset-3 col-md-6">
-  <h3>New Blog Post</h3>
+  {% if action == "new" %}
+    <h3>New Blog Post</h3>
+  {% else %}
+    <h3>Edit Blog Post</h3>
+  {% endif %}
 
   {% from "_formhelpers.html" import render_field %}
-  <form  action="{{ url_for('post')}}" method="POST" enctype="multipart/form-data" role="form">
+
+  {% if action == "new" %}
+      <form  action="{{ url_for('post')}}" method="POST" enctype="multipart/form-data" role="form">
+  {% else %}
+      <form  action="{{ url_for('edit', post_id=post.id) }}" method="POST" enctype="multipart/form-data" role="form">
+  {% endif %}
 
       {{ form.hidden_tag() }}
+
+      {% if post and post.image %}
+          <img src="{{ post.imgsrc }}" height="80px" class='img-rounded'>
+      {% endif %}
+
 
       {{ render_field(form.image, class='form-control form-control-lg', placeholder="Escolha o arquivo") }}
       {{ render_field(form.title, class='form-control form-control-lg', placeholder="Título do Post") }}
@@ -18,7 +32,11 @@
       {{ render_field(form.category, class='form-control form-control-lg') }}
       {{ render_field(form.new_category, class='form-control form-control-lg', placeholder="Nova categoria") }}
 
-      <button type="submit" class="btn btn-outline-primary">Publicar</button>
+      {% if action == "new" %}
+        <button type="submit" class="btn btn-outline-primary">Publicar</button>
+      {% else %}
+        <button type="submit" class="btn btn-outline-primary">Update</button>
+      {% endif %}
   </form>
 </div>
 
