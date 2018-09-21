@@ -3,6 +3,7 @@ from wtforms import validators, StringField, TextAreaField
 from author.form import RegisterForm
 from blog.models import Category
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from flask_wtf.file import FileField, FileAllowed
 
 # Como a classe SetupForm herda a classe RegisterForm, ela tem todas
 # as características de RegisterForm
@@ -16,6 +17,9 @@ def categories():
     return Category.query
 
 class PostForm(FlaskForm):
+    image = FileField('Image', validators=[
+        FileAllowed(['jpg', 'jpeg', 'png'], 'Images only!')
+        ])
     title = StringField('Title', [
         validators.Required(),
         validators.Length(max=80)

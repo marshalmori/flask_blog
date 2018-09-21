@@ -9,17 +9,21 @@
       <hr>
       <div class="post-list">
         {% for post in posts.items %}
-            <div class="post-item">
-              <h4>
-                <a href="{{ url_for('article', slug=post.slug) }}">{{ post.title }}</a>
-                <div class="text-muted">
-                  Posted by
-                    <a href="#">{{ post.author.fullname }}</a>
-                    on {{ post.publish_date.strftime('%d-%m-%Y') }}
-                    in <a href="#">{{ post.category.name }}</a>
+            <div class="row post-item">
+              <div class="col-md-9">
+                <h4>
+                  <a href="{{ url_for('article', slug=post.slug) }}">{{ post.title }}</a></h4>
+                  <div class="text-muted">Posted by <a href="#">{{ post.author.fullname }}</a>
+                      on {{ post.publish_date.strftime('%d-%m-%Y') }}
+                      in <a href="#">{{ post.category.name }}</a>
+                  </div>
                 </div>
-              </h4>
-            </div>
+                <div class="col-md-3">
+                  {% if post.image %}
+                      <img src="{{ post.imgsrc }}" height="60px" class="img-rounded">
+                  {% endif %}
+                </div>
+              </div>
         {% endfor %}
       </div>
       <div class="post-paginate">
