@@ -4,7 +4,7 @@ Flask-SQLAlchemy
 Flask-Script
 Flask-WTF
 Flask-Migrate
-py-bcrypt
+bcrypt
 python-slugify
 flask-markdown
 Flask-Uploads

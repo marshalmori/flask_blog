@@ -11,6 +11,10 @@ from slugify import slugify
 POSTS_PER_PAGE = 5
 
 @app.route('/')
+@app.route('/site')
+def site():
+    return render_template('site/index.html')
+
 @app.route('/index')
 @app.route('/index/<int:page>')
 def index(page=1):
